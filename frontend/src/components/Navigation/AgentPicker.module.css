@@ -1,0 +1,85 @@
+.picker {
+  background: #0d0d0d;
+  border: 1px solid #7c6af7;
+  border-radius: 8px;
+  padding: 12px 0;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(124, 106, 247, 0.2);
+  z-index: 1000;
+}
+
+.header {
+  padding: 8px 16px;
+  border-bottom: 1px solid #161622;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.agentsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.agentItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 14px;
+  text-align: left;
+  font-family: inherit;
+}
+
+.agentItem:hover {
+  background: #161622;
+  color: #fff;
+}
+
+.agentItem.active {
+  background: rgba(124, 106, 247, 0.1);
+  color: #7c6af7;
+  border-left: 3px solid #7c6af7;
+  padding-left: 13px;
+}
+
+.emoji {
+  font-size: 20px;
+  min-width: 20px;
+}
+
+.name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: #7c6af7;
+  flex-shrink: 0;
+}
+
+.agentItem.offline {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.agentItem.offline:hover {
+  background: transparent;
+  color: #666;
+}
+
+.offlineIcon {
+  color: #666;
+  flex-shrink: 0;
+}

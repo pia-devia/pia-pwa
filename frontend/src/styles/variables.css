@@ -1,0 +1,28 @@
+/* ─── CORE Mode (default) ─────────────────────────────────────────── */
+:root {
+  --bg-base: #0a0a0f;
+  --bg-surface: #10121a;
+  --bg-sidebar: #1c2137;
+  --bg-card: #232942;
+  --accent: #F5C518;
+  --accent-hover: #D4A716;
+  --accent-rgb: 245, 197, 24;
+  --accent-text: #000;
+  --text-primary: #e2e2e2;
+  --text-secondary: #888888;
+  --border: #2a3350;
+  --success: #4ade80;
+  --danger: #f87171;
+  --warning: #fbbf24;
+
+  --sidebar-width: 260px;
+  --header-height: 56px;
+  --transition: 0.2s ease;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+/* ─── PO Mode ─────────────────────────────────────────────────────── */
+/* All theme colors (accent + backgrounds) are managed dynamically by AgentContext.
+   When the user picks an accent color, backgrounds are derived from that hue.
+   No hardcoded overrides needed here. */

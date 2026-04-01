@@ -1,0 +1,357 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 20px 20px;
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 1;
+}
+
+
+
+/* ── Top bar ─────────────────────────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: none;
+  height: 48px;
+  padding: 0 20px;
+  margin: 0 -20px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.topLeft { flex: 1; display: flex; min-width: 0; }
+.topRight { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+
+/* ── Briefing row (full width) ────────────────────────────────────────────── */
+.briefingRow {
+  flex: none;
+  height: 220px;
+  overflow: hidden;
+}
+
+/* ── Main grid ───────────────────────────────────────────────────────────── */
+.main {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.colLeft, .colRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.colLeft {
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding-right: 14px;
+}
+
+/* ── Cell fill: takes remaining space ────────────────────────────────────── */
+.cellFill {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cellTasks {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cellCalendar {
+  flex: none;
+  height: 315px;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Row within a column (crons + spotify) ───────────────────────────────── */
+.cellRow {
+  display: flex;
+  gap: 14px;
+  flex: none;
+  height: 250px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cellWide {
+  flex: 2;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.cellNarrow {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.cellNarrow > * { flex: 1; }
+
+/* ── Placeholder box ─────────────────────────────────────────────────────── */
+.box {
+  background: var(--bg-card);
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.box::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.wip {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wipText {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+/* ── Mock wireframes ─────────────────────────────────────────────────────── */
+.mockBlock {
+  border: 1px dashed rgba(255,255,255,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mockBlock::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.25);
+  z-index: 1;
+}
+
+.mockInner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 28px 10px 10px;
+  flex: 1;
+}
+
+.mockBox {
+  border: 1px dashed rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockBox::after {
+  content: attr(data-label);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mockGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 28px 10px 10px;
+  flex: 1;
+}
+
+.mockIcon {
+  border: 1px dashed rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.mockIcon::after {
+  content: attr(data-label);
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.2);
+}
+
+.mockTaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mockTask {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 1px dashed rgba(255,255,255,0.04);
+}
+
+.mockCheck {
+  width: 14px;
+  height: 14px;
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.mockTaskText {
+  flex: 1;
+}
+
+.mockTaskText::after {
+  content: attr(data-label);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.mockTag {
+  padding: 2px 6px;
+  border: 1px dashed rgba(245, 197, 24,0.2);
+}
+
+.mockTag::after {
+  content: attr(data-label);
+  font-size: 0.45rem;
+  color: rgba(245, 197, 24,0.3);
+  text-transform: uppercase;
+}
+
+.mockTimer {
+  padding: 2px 6px;
+  border: 1px dashed rgba(255,169,77,0.2);
+}
+
+.mockTimer::after {
+  content: attr(data-label);
+  font-size: 0.45rem;
+  color: rgba(255,169,77,0.4);
+}
+
+.mockRow {
+  display: flex;
+  gap: 12px;
+  padding: 28px 10px 10px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.mockDot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px dashed rgba(255,255,255,0.06);
+}
+
+.mockDot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 197, 24,0.4);
+}
+
+.mockDot::after {
+  content: attr(data-label);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── Compact mode (chat sidebar open) ────────────────────────────────────── */
+.compact {
+  overflow-y: auto;
+}
+
+.compact .briefingRow {
+  height: 180px;
+}
+
+.compact .main {
+  flex-direction: column;
+  overflow: visible;
+}
+
+.compact .colLeft,
+.compact .colRight {
+  flex: none;
+  max-height: none;
+  overflow: visible;
+}
+
+.compact .colLeft {
+  border-right: none;
+  padding-right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 14px;
+}
+
+.compact .cellCalendar {
+  height: 300px;
+}
+
+.compact .cellTasks {
+  flex: none;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.compact .cellRow {
+  height: 200px;
+}
+
+.compact .cellFill {
+  flex: none;
+  height: 300px;
+  overflow-y: auto;
+}
+
+/* Top bar: collapse spacing in compact mode */
+.compact .topBar {
+  gap: 0;
+  padding: 0 10px;
+  font-size: 0.72rem;
+}
+

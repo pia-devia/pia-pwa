@@ -1,0 +1,74 @@
+.header {
+  height: var(--header-height);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.titleSection {
+  display: none;
+  align-items: center;
+  gap: 2px;
+}
+
+.logoK {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.logoText {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.logoOs {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.logoutBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  line-height: 1.4;
+}
+
+.logoutBtn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: var(--bg-base);
+}
+
+@media (max-width: 768px) {
+  .titleSection {
+    display: flex;
+  }
+  .header {
+    padding: 0 16px;
+  }
+}

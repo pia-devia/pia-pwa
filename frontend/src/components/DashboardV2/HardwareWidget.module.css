@@ -1,0 +1,82 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 100%;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  cursor: default;
+  position: relative;
+
+}
+
+.icon {
+  color: rgba(255,255,255,0.6);
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.7);
+}
+
+.value {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-sidebar, #1c2137);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  animation: tooltipIn 0.15s ease;
+  z-index: 50;
+  pointer-events: none;
+}
+
+@keyframes tooltipIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.bar {
+  width: 48px;
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.8s ease;
+}
+
+.sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}

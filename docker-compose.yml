@@ -1,0 +1,54 @@
+networks:
+  default:
+    name: kai-network
+
+services:
+  kai-pwa:
+    build: .
+    container_name: kai-pwa
+    restart: unless-stopped
+    ports:
+      - "80:3001"
+    volumes:
+      - /home/kai/.openclaw/workspace:/workspace:rw
+      - /home/kai/projects:/home/kai/projects:ro
+      - /home/kai/.instances/po/workspace:/workspace-po-kai:rw
+      - /home/kai/.instances/fe/workspace:/workspace-fe-kai:rw
+      - /home/kai/.instances/be/workspace:/workspace-be-kai:rw
+      - /home/kai/.instances/ux/workspace:/workspace-ux-kai:rw
+      - /home/kai/.instances/qa/workspace:/workspace-qa-kai:rw
+      - /home/kai/.kai-shared:/home/kai/.kai-shared:ro
+      - /home/kai/projects/pwa/code/data:/app/data:rw
+      - /home/kai/.kai-secrets:/app/vault-secrets:rw
+      - /home/kai/projects/devia/code:/app/devia-model-web:ro  # Legacy mount — devia now has its own container at :3003
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+    environment:
+      - WORKSPACE_ROOT=/workspace
+      - WORKSPACE_PO_KAI=/workspace-po-kai
+      - WORKSPACE_FE_KAI=/workspace-fe-kai
+      - WORKSPACE_BE_KAI=/workspace-be-kai
+      - WORKSPACE_UX_KAI=/workspace-ux-kai
+      - WORKSPACE_QA_KAI=/workspace-qa-kai
+      - JWT_SECRET=kai-pwa-secret-2026
+      - PORT=3001
+      - TELEGRAM_BOT_TOKEN=8291237173:AAElzKvQHvIjVQZ8Pm2yaBFdoXB9aiRKqik
+      - TELEGRAM_CHAT_ID=8314284665
+      - PHYSICAL_DISK_GB=914
+      - HOME=/home/kai
+      - BRIDGE_URL=http://172.19.0.1:8766
+      - OPENCLAW_GATEWAY_TOKEN=b2348138eb8d24617942e09e209ebecd7817dfddf9754518
+      - OPENCLAW_CORE_PORT=18791
+      - OPENCLAW_CORE_TOKEN=b2348138eb8d24617942e09e209ebecd7817dfddf9754518
+      - OPENCLAW_PO_PORT=18790
+      - OPENCLAW_PO_TOKEN=po-agent-gateway-token-2026-kai
+      - OPENCLAW_FE_PORT=18796
+      - OPENCLAW_FE_TOKEN=fe-agent-gateway-token-2026-kai
+      - OPENCLAW_BE_PORT=18793
+      - OPENCLAW_BE_TOKEN=be-agent-gateway-token-2026-kai
+      - OPENCLAW_UX_PORT=18794
+      - OPENCLAW_UX_TOKEN=ux-agent-gateway-token-2026-kai
+      - OPENCLAW_QA_PORT=18795
+      - OPENCLAW_QA_TOKEN=qa-agent-gateway-token-2026-kai
+      - PROJECTS_ROOT=/home/kai/projects
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

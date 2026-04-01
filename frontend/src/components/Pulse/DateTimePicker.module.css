@@ -1,0 +1,174 @@
+.wrapper {
+  position: relative;
+}
+
+.input {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  width: 130px;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.input::placeholder { color: var(--text-tertiary); font-size: 0.68rem; }
+.input:focus { outline: none; border-color: var(--accent); }
+
+.dropdown {
+  position: fixed;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  z-index: 100;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  animation: dropIn 0.15s ease;
+  width: 260px;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.monthLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.navBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.1s;
+}
+.navBtn:hover { background: rgba(255,255,255,0.06); color: var(--text-primary); }
+
+/* Day names */
+.dayNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  margin-bottom: 4px;
+}
+
+.dayName {
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  padding: 2px 0;
+}
+
+/* Day grid */
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.dayEmpty {
+  aspect-ratio: 1;
+}
+
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.day:hover { background: rgba(255,255,255,0.06); }
+
+.daySelected {
+  background: var(--accent) !important;
+  color: #000;
+  font-weight: 600;
+}
+
+.dayToday {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Time row */
+.timeRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.timeLabel {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
+.timeInput {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 5px;
+  padding: 4px;
+  font-size: 0.8rem;
+  width: 36px;
+  text-align: center;
+  font-family: inherit;
+  -moz-appearance: textfield;
+}
+.timeInput::-webkit-outer-spin-button,
+.timeInput::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.timeInput:focus { outline: none; border-color: var(--accent); }
+
+.timeSep {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.1s;
+}
+.clearBtn:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }

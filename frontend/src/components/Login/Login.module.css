@@ -1,0 +1,133 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-base, #0a0a0f);
+}
+
+/* ── Card ── */
+.card {
+  width: 160px;
+  height: 160px;
+  background: #111827;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              border-radius 0.5s ease;
+  overflow: hidden;
+}
+
+.cardExpanded {
+  width: 300px;
+  height: 72px;
+  border-radius: 20px;
+}
+
+/* ── Logo ── */
+.logoWrap {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: appearBlur 0.8s ease forwards;
+}
+
+@keyframes appearBlur {
+  from { opacity: 0; filter: blur(10px); transform: scale(0.9); }
+  to   { opacity: 1; filter: blur(0px);  transform: scale(1); }
+}
+
+.logoImg {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  position: absolute;
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+}
+
+.logoK    { opacity: 1; filter: blur(0px); transform: scale(1); }
+.logoPower {
+  width: 55%;
+  height: 55%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s ease;
+  filter: drop-shadow(0 0 8px rgba(245, 197, 24, 0.6)) blur(10px);
+  transform: scale(0.85);
+  user-select: none;
+  pointer-events: none;
+}
+
+.logoWrap:hover .logoK      { opacity: 0; filter: blur(12px); transform: scale(1.15); }
+.logoWrap:hover .logoPower  { opacity: 1; filter: drop-shadow(0 0 12px rgba(245, 197, 24,0.9)) blur(0px); transform: scale(1); }
+
+/* Partículas */
+.logoWrap::before, .logoWrap::after {
+  content: '';
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #F5C518;
+  opacity: 0;
+}
+.logoWrap:hover::before { animation: particle1 0.8s ease-out forwards 0.1s; }
+.logoWrap:hover::after  { animation: particle2 0.8s ease-out forwards 0.2s; }
+
+@keyframes particle1 {
+  0%   { opacity: 0.9; transform: translate(0,0) scale(1); }
+  100% { opacity: 0;   transform: translate(40px,-35px) scale(0.3); }
+}
+@keyframes particle2 {
+  0%   { opacity: 0.9; transform: translate(0,0) scale(1); }
+  100% { opacity: 0;   transform: translate(-38px,-30px) scale(0.3); }
+}
+
+/* ── Input zone ── */
+.inputZone {
+  width: 100%;
+  padding: 0 16px;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.codeInput {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.4rem;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.codeInput::placeholder {
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.3rem;
+}
+
+.inputError {
+  animation: errorPulse 0.35s ease 0s 2;
+}
+
+@keyframes errorPulse {
+  0%, 100% { box-shadow: none; border-color: transparent; }
+  50%       { box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.8), 0 0 12px rgba(239, 68, 68, 0.4); border-color: rgba(239, 68, 68, 0.8); }
+}
